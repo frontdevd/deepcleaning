@@ -1,0 +1,90 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/animations";
+
+#dashboard {
+  margin-top: 50px;
+  font-family: "Segoe UI";
+  color: #000;
+  .form-control {
+    margin: 0 0 40px 0;
+    text-align: end;
+    input {
+      width: 40%;
+      padding: 10px;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid #000;
+      outline: none;
+    }
+  }
+
+  .table-wrapper {
+    position: relative;
+
+    table {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+      width: 100%;
+
+      thead {
+        background: $greyLightColor;
+        color: #fff;
+        padding: 20px;
+
+        tr {
+          border-bottom: 1px solid $greyLightColor;
+          th {
+            text-align: center;
+            padding: 3px 5px;
+            border-right: 1px solid $greyLightColor;
+            font-size: 14px;
+            color: #000;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-bottom: 1px solid $greyLightColor;
+          td {
+            text-align: center;
+            padding: 10px;
+            border-right: 1px solid $greyLightColor;
+            img {
+              width: 250px;
+            }
+            button {
+              display: flex;
+              align-items: center;
+              margin: 0 auto;
+              background: 0;
+              border: 0;
+              width: 100%;
+              text-align: center;
+              justify-content: center;
+
+              i.material-icons {
+                color: $blueColor;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .loader {
+      @include loader();
+
+      span.material-icons {
+        font-size: 30px;
+        animation: rotating 2s linear infinite;
+      }
+    }
+  }
+
+
+
+}

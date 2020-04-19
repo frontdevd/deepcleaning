@@ -1,0 +1,74 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/animations";
+@import "../../../assets/scss/mixins";
+
+section#how-it-works {
+  background: #ffffff;
+  text-align: center;
+
+  @include section(100px 0);
+
+  h3 {
+    @include h3(48px,66px, uppercase, $blueColor);
+    margin-bottom: 100px;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .how-it-work-wrapper {
+    display: flex;
+    justify-content: space-between;
+    font-family: Segoe UI;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    text-transform: inherit;
+    color: #1E4D5B;
+    flex-wrap: wrap;
+
+    .how-work-box:nth-child(1) {
+      flex-basis: 100px;
+    }
+
+    .how-work-box:nth-child(2) {
+      flex-basis: 160px;
+    }
+
+    .how-work-box:nth-child(3) {
+      flex-basis: 290px;
+    }
+
+    .how-work-box:nth-child(4) {
+      flex-basis: 452px;
+    }
+
+    .how-work-box {
+
+      svg {
+        @include media-breakpoint-up(1500) {
+          width: 50px;
+        }
+      }
+      p {
+        @include p(24px, 33px, $blueColor);
+        @include media-breakpoint-up(lg) {
+          width: 90%;
+          margin: 0 auto;
+          line-height: inherit;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        flex-basis: 48% !important;
+        margin-bottom: 60px;
+      }
+      @include media-breakpoint-up(xs) {
+        flex-basis: 100% !important;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

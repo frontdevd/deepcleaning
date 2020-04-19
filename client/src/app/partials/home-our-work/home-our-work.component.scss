@@ -1,0 +1,80 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/animations";
+@import "../../../assets/scss/mixins";
+
+
+section#about-our-work {
+  position: relative;
+  background: #fff;
+  @include section(200px 0);
+
+  .information {
+    font-family: Segoe UI;
+    color: $blueColor;
+    text-align: center;
+
+    h3 {
+      @include h3(40px,40px, uppercase, $blueColor);
+      width: 612px;
+      margin: 0 auto 50px;
+
+      @include media-breakpoint-up(md) {
+        width: unset;
+      }
+    }
+
+    p {
+      width: 714px;
+      margin: 0 auto 50px;
+      font-size: 30px;
+      line-height: 44px;
+      text-align: center;
+
+      @include media-breakpoint-up(md) {
+        font-size: 18px;
+        width: unset;
+        line-height: inherit;
+        margin: 0 auto;
+      }
+    }
+  }
+
+
+  &:before {
+    content: "";
+    display: block;
+    background: url(/assets/images/home/service_1.png) no-repeat;
+    position: absolute;
+    left: 0;
+    top: 160px;
+    background-size: contain;
+    width: 366.63px;
+    height: 376.67px;
+
+    @include media-breakpoint-up(1500) {
+      background-position: -70px;
+    }
+    @include media-breakpoint-up(1300) {
+      display: none;
+    }
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    background: url(/assets/images/home/service_2.png) no-repeat;
+    position: absolute;
+    right: 0;
+    top: 390px;
+    background-size: contain;
+    width: 340.45px;
+    height: 339.19px;
+    @include media-breakpoint-up(1500) {
+      background-position: 70px;
+    }
+    @include media-breakpoint-up(1300) {
+      display: none;
+    }
+  }
+}

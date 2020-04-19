@@ -1,0 +1,101 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/animations";
+@import "../../../assets/scss/mixins";
+
+
+section#background-image {
+  width: 100%;
+  height: 100vh;
+  font-family: Segoe UI;
+  background: $yellowColor;
+
+  .content-full {
+    width: 100%;
+
+    .background-image-wrapper {
+      justify-content: space-between;
+      display: flex;
+      @include media-breakpoint-up(xs) {
+        flex-direction: column;
+      }
+
+
+      .background-text {
+        flex-basis: 56%;
+        padding: 250px 0 0 70px;
+        @include media-breakpoint-up(md) {
+          padding: 160px 0 0 30px;
+        }
+      }
+
+      .background-image {
+        flex-basis: 44%;
+        padding-top: 60px;
+        position: relative;
+        @include media-breakpoint-up(1300) {
+          padding-top: 70px;
+        }
+        @include media-breakpoint-up(md) {
+          padding-top: 130px;
+        }
+
+
+        img {
+          width: 100%;
+          max-width: 100%;
+
+          @include media-breakpoint-up(md) {
+            position: absolute;
+            top: 80%;
+          }
+          @include media-breakpoint-up(xs) {
+            top: -43px;
+            width: 149px;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .background-image-wrapper {
+    display: flex;
+  }
+
+  .background-text {
+    h1 {
+      @include h1(64px, 89px, uppercase, $blueColor);
+      width: 705px;
+
+      @include media-breakpoint-up(1300) {
+        width: 100%;
+      }
+      @include media-breakpoint-up(md) {
+        margin-bottom: 20px;
+      }
+    }
+
+    p {
+      @include p(36px, 50px, $blueColor);
+      @include media-breakpoint-up(md) {
+        margin-bottom: 20px;
+      }
+    }
+
+    button {
+      @include whiteBtn();
+    }
+  }
+}
+
+
+div#modal-order {
+  width: 100%;
+  height: 100%;
+  background: red;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}

@@ -1,0 +1,41 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/animations";
+@import "../../../assets/scss/mixins";
+
+
+
+
+
+
+div#setting {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  background: $blueColor;
+  width: 60px;
+  height: 60px;
+  transform: translate(0px, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    color: #ffffff;
+    font-size: 30px;
+    animation: rotating 8s linear infinite;
+  }
+}
+
+div#modal-order {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+
+  section#contact {
+    background: $blueColor;
+  }
+}

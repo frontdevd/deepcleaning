@@ -1,0 +1,44 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/animations";
+@import "../../../assets/scss/mixins";
+
+section#order-block {
+  background: $greyLightColor;
+  text-align: center;
+  font-family: "Segoe UI";
+  padding: 93px 0 97px;
+
+  .order-wrapper {
+    > h3 {
+      @include h3(48px, 66px, inherit, $blueColor)
+    }
+
+    > p {
+      @include p(30px, 56px, $blueColor);
+      width: 1090px;
+      margin: 30px auto;
+    }
+
+    .phone-box {
+      display: flex;
+      justify-content: space-between;
+      width: 590px;
+      margin: 0 auto;
+
+      button {
+        @include yellowBtn();
+        width: 240px;
+        height: 64px;
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      p {
+        @include p(30px, 56px, $blueColor);
+        margin: 0;
+        font-weight: bold;
+      }
+    }
+  }
+}

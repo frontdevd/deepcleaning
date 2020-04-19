@@ -1,0 +1,20 @@
+<main class="main">
+	<app-home-background (onModal)="openModal($event)"></app-home-background>
+	<app-home-our-work></app-home-our-work>
+	<app-service></app-service>
+
+	<app-how-works></app-how-works>
+	<app-yellow-information></app-yellow-information>
+	<app-contact-page [onContent]="'home'"></app-contact-page>
+
+	<div id="setting" *ngIf="isAdmin">
+		<a routerLink="/admin">
+			<span class="material-icons">settings</span>
+		</a>
+	</div>
+
+	<div id="modal-order" *ngIf="showModal">
+		<app-contact-page [onContent]="'modal'" [onShow]="showModal" (onHide)="closeModal($event)"></app-contact-page>
+	</div>
+
+</main>

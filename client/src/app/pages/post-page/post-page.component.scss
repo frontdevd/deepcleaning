@@ -1,0 +1,72 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/animations";
+@import "../../../assets/scss/mixins";
+
+
+.spinner {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fffffff0;
+  width: 100%;
+
+  svg {
+    width: 40px;
+    animation: rotating 2s linear infinite;
+  }
+
+}
+
+
+article.post {
+  width: 80%;
+  margin: 150px auto 0;
+
+  h1 {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 138.33%;
+    text-transform: uppercase;
+    color: #1E4D5B;
+    margin-bottom: 50px;
+  }
+
+  p {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 186.21%;
+    color: #1E4D5B;
+    margin: 20px 0;
+
+  }
+}
+
+.phone-box {
+  display: flex;
+  justify-content: space-between;
+  width: 590px;
+  margin: 100px auto;
+
+  button {
+    @include yellowBtn();
+    width: 240px;
+    height: 64px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  p {
+    @include p(30px, 56px, $blueColor);
+    margin: 0;
+    font-weight: bold;
+  }
+}

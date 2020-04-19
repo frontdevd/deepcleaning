@@ -1,0 +1,46 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/animations";
+@import "../../../assets/scss/mixins";
+
+section#yellow-text {
+  background: $yellowColor;
+  padding: 105px 0;
+  font-family: Segoe UI;
+  font-size: 30px;
+  line-height: 41px;
+  color: $blueColor;
+  @include media-breakpoint-up(md) {
+    padding: 40px 0;
+  }
+  .yellow-wrapper {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    flex-wrap: wrap;
+
+    @include media-breakpoint-up(lg) {
+      flex-direction: column;
+    }
+
+    .yellow-box {
+      flex-basis: 24%;
+
+      p {
+        width: 100%;
+        font-weight: bold;
+        @include media-breakpoint-up(1700) {
+          width: 100%;
+          font-size: 25px;
+          line-height: inherit;
+        }
+
+        @include p(30px, 56px, $blueColor);
+
+        @include media-breakpoint-up(lg) {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

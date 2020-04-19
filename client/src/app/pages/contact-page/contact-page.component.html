@@ -1,0 +1,150 @@
+<section id="contact"
+         [ngClass]="{
+						'contact-bg': content =='contact',
+						'home-bg': content =='home',
+						'modal-bg': content =='modal'}"
+         [class.modal-show]="onShow">
+	<svg *ngIf="onShow" (click)="close($event)" enable-background="new 0 0 512.001 512.001" version="1.1"
+	     viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="m284.29 256 221.86-221.86c7.811-7.811 7.811-20.475 0-28.285s-20.475-7.811-28.285 0l-221.86 221.86-221.86-221.86c-7.811-7.811-20.475-7.811-28.285 0s-7.811 20.475 0 28.285l221.86 221.86-221.86 221.86c-7.811 7.811-7.811 20.475 0 28.285 3.905 3.905 9.024 5.857 14.143 5.857s10.237-1.952 14.143-5.857l221.86-221.86 221.86 221.86c3.905 3.905 9.024 5.857 14.143 5.857s10.237-1.952 14.143-5.857c7.811-7.811 7.811-20.475 0-28.285l-221.86-221.86z"/>
+	</svg>
+
+	<div class="content">
+		<div class="contact-wrapper">
+			<div class="contact-box">
+
+				<div *ngIf="content == 'contact'" class="contact-content-text">
+					<h4>{{texts.title}}</h4>
+					<p>{{texts.phone}}</p>
+					<p>{{texts.emails}}</p>
+					<ul>
+						<li><a href=""><img src="/assets/images/social/fb.svg" alt="fb"></a></li>
+						<li><a href=""><img src="/assets/images/social/insta.svg" alt="fb"></a></li>
+						<li><a href=""><img src="/assets/images/social/tw.svg" alt="fb"></a></li>
+					</ul>
+				</div>
+
+				<div *ngIf="content == 'home'" class="home-content-text">
+					<h4>{{texts.title}}</h4>
+					<p>{{texts.p}}</p>
+				</div>
+
+				<div *ngIf="content == 'modal'" class="modal-content-text">
+					<h4>{{texts.title}}</h4>
+					<p>{{texts.p}}</p>
+				</div>
+			</div>
+			<div class="contact-box">
+				<form [formGroup]="form" (ngSubmit)="submit($event)">
+					<div
+						[ngClass]="{invalid: form.get('service').touched && form.get('service').invalid}"
+						class="form-control form-row">
+						<select name="service" id="service" formControlName="service">
+							<option value="" [selected]="isSelect">Выберите сервис</option>
+							<option *ngFor="let service of _data.serviceAll()" value="service.id">{{service.name}}</option>
+						</select>
+						<div
+							*ngIf="form.get('service').touched && form.get('service').invalid"
+							class="validation">
+							<small *ngIf="form.get('service').errors.required">
+								Выберите сервис *
+							</small>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div
+							[ngClass]="{invalid: form.get('name').touched && form.get('name').invalid}"
+							class="form-control  form-row">
+							<input type="text" formControlName="name" placeholder="Имя">
+							<div
+								*ngIf="form.get('name').touched && form.get('name').invalid"
+								class="validation">
+								<small *ngIf="form.get('name').errors.required">
+									Введите имя *
+								</small>
+							</div>
+						</div>
+
+						<div
+							[ngClass]="{invalid: form.get('phone').touched && form.get('phone').invalid}"
+							class="form-control  form-row">
+							<input type="text" formControlName="phone" placeholder="Телефон " name="phone">
+							<div
+								*ngIf="form.get('phone').touched && form.get('phone').invalid"
+								class="validation">
+								<small *ngIf="form.get('phone').errors.required">
+									Введите телефон *
+								</small>
+								<small *ngIf="form.get('phone').hasError('pattern')">
+									Pattern Not valid
+								</small>
+							</div>
+						</div>
+
+					</div>
+
+					<div [ngClass]="{invalid: form.get('address').touched && form.get('address').invalid}"
+					     class="form-control form-row">
+						<input type="text" formControlName="address" placeholder="Адрес" name="address">
+						<div
+							*ngIf="form.get('address').touched && form.get('address').invalid"
+							class="validation">
+							<small *ngIf="form.get('address').errors.required">
+								Введите адрес *
+							</small>
+						</div>
+					</div>
+
+					<div
+						[ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+						class="form-control form-row">
+						<input type="email" formControlName="email" placeholder="Email" name="email">
+						<div *ngIf="form.get('email').touched && form.get('email').invalid" class="validation">
+							<small *ngIf="form.get('email').errors.required">
+								Введите email *
+							</small>
+							<small *ngIf="form.get('email').errors.email">
+								Введите корректный email *
+							</small>
+						</div>
+					</div>
+
+					<div class="form-control form-row">
+						<input
+							[owlDateTime]="dt1"
+							[owlDateTimeTrigger]="dt1"
+							placeholder="Дата и время"
+							formControlName="datepicker"
+							name="datepicker"
+							autocomplete="off"
+						>
+						<owl-date-time #dt1></owl-date-time>
+
+						<div
+							*ngIf="form.get('datepicker').touched && form.get('datepicker').invalid"
+							class="validation">
+							<small *ngIf="form.get('datepicker').errors.required">
+								Выберите дату и время *
+							</small>
+						</div>
+					</div>
+
+					<div class="text-right">
+						<button
+							type="submit"
+							class="btn btn-block btn-yellow"
+							[disabled]="form.invalid"
+						> Заказать
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+

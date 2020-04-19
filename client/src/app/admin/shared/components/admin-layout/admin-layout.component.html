@@ -1,0 +1,37 @@
+<main id="admin-layout">
+	<div class="content">
+		<div class="admin-header" *ngIf="auth.isAuthenticated()">
+			<app-alert></app-alert>
+			<ul class="admin-menu-list">
+				<li routerLinkActive="active">
+					<a [routerLink]="['/admin', 'dashboard']">
+						<i class="material-icons">home</i> dashboard
+					</a>
+				</li>
+
+				<li routerLinkActive="active">
+					<a [routerLink]="['/']">
+						<i class="material-icons">home</i> go to website
+					</a>
+				</li>
+
+				<li routerLinkActive="active">
+					<a [routerLink]="['/admin', 'create']">
+						<i class="material-icons">create</i>create
+					</a>
+				</li>
+				<li>
+					<a href="#" (click)="logout($event)">
+						<i class="material-icons"> power_off</i>Log out
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div id="wrapper">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</main>
+
+

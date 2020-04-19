@@ -1,0 +1,81 @@
+<div id="create-post" *ngIf="form; else loading">
+	<p>Edit post</p>
+	<form [formGroup]="form" (ngSubmit)="submit()">
+
+		<div
+			[ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}"
+			class="form-control">
+			<label for="title">title
+				<input type="text" id="title" formControlName="title">
+				<i class="material-icons">create</i>
+			</label>
+			<div
+				*ngIf="form.get('title').touched && form.get('title').invalid"
+				class="validation">
+				<small *ngIf="form.get('title').errors.required">
+					write post title
+				</small>
+			</div>
+		</div>
+
+		<div
+			[ngClass]="{invalid: form.get('text').touched && form.get('text').invalid}"
+			class="form-control">
+			<label for="text">text
+				<input type="text" id="text" formControlName="text">
+				<i class="material-icons">create</i>
+			</label>
+			<div
+				*ngIf="form.get('text').touched && form.get('text').invalid"
+				class="validation">
+				<small *ngIf="form.get('text').errors.required">
+					write post text
+				</small>
+			</div>
+		</div>
+
+		<div
+			[ngClass]="{invalid: form.get('description').touched && form.get('description').invalid}"
+			class="form-control">
+			<label for="description">description
+				<textarea type="text" id="description" formControlName="description"></textarea>
+				<i class="material-icons">create</i>
+			</label>
+			<div
+				*ngIf="form.get('description').touched && form.get('description').invalid"
+				class="validation">
+				<small *ngIf="form.get('description').errors.required">
+					write post description
+				</small>
+			</div>
+		</div>
+
+		<div
+			[ngClass]="{invalid: form.get('image').touched && form.get('image').invalid}"
+			class="form-control">
+			<label for="image">image
+				<input type="text" id="image" formControlName="image">
+				<i class="material-icons">create</i>
+			</label>
+			<div
+				*ngIf="form.get('image').touched && form.get('image').invalid"
+				class="validation">
+				<small *ngIf="form.get('image').errors.required">
+					write post image
+				</small>
+			</div>
+		</div>
+
+		<button
+			type="submit"
+			class="btn btn-primary"
+			[disabled]="form.invalid || submitted">update
+		</button>
+
+
+	</form>
+</div>
+
+<ng-template #loading>
+  <p class="text-center">loader...</p>
+</ng-template>

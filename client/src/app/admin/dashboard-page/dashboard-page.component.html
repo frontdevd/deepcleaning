@@ -1,0 +1,60 @@
+<!--<div id="dashboard" *ngIf="posts.length; else loading">-->
+
+<!--<pre>{{posts.length | json}}</pre>-->
+
+<div id="dashboard" *ngIf="posts.length">
+	<div class="form-control">
+		<input type="text" placeholder="search" [(ngModel)]="searchStr">
+	</div>
+
+	<div class="table-wrapper">
+		<table>
+			<thead>
+			<tr>
+				<th>id</th>
+				<th>title</th>
+				<th>text</th>
+				<th>description</th>
+				<th>image</th>
+				<th>date</th>
+				<th>edit</th>
+				<th>delte</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr *ngFor="let post of posts | searchPosts: searchStr; let ind = index">
+				<td>{{ind + 1}}</td>
+				<td>{{post.title}}</td>
+				<td>{{post.text}}</td>
+				<td>{{( post.description.length>6)? ( post.description | slice:0:250)+'..':( post.description)  }}</td>
+				<td><img src="../assets/images/services/{{post.image}}" alt=""></td>
+				<td>{{post.date | date}}</td>
+				<td>
+					<button
+						class="btn btn-link open"
+						[routerLink]="['/admin', 'post', post.id, 'edit']">
+						<i class="material-icons"> edit</i>edit
+					</button>
+				</td>
+				<td>
+					<button (click)="remove(post.id)">
+						<i class="material-icons">delete</i>delete
+					</button>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<div class="loader" *ngIf="loader">
+			<span class="material-icons">loop</span>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+

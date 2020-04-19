@@ -1,0 +1,124 @@
+@import "src/assets/scss/variable";
+@import "src/assets/scss/fonts";
+@import "src/assets/scss/media";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+ol, ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote {
+  &:before, &:after {
+    content: '';
+    content: none;
+  }
+}
+
+q {
+  &:before, &:after {
+    content: '';
+    content: none;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// global
+
+.content {
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+  box-sizing: border-box;
+  @include media-breakpoint-up(md) {
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+
+button, a {
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-decoration: none;
+  &:hover {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+
+  &:visited {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+
+  &:focus {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+
+  &:active {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+.text-right {
+  text-align: right;
+}
+
+
+
+// global headers
+//body.home header.header-desktop{
+//  background-color: $yellowColor;
+//}
+//body.services header.header-desktop,
+//body.contact header.header-desktop,
+//body.home header.header-white{
+//  background-color: #ffffff;
+//}
+//body.services section#about-our-services {
+//  min-height: 600px;
+//}
+
+.owl-dt-timer-content .owl-dt-timer-input {
+  border: 1px solid rgba(195, 183, 183, 0.5);
+}

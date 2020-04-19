@@ -1,0 +1,104 @@
+<main (window:scroll)="onScrollEvent($event)" (window:resize)="onResize($event)">
+	<header class="header-desktop" *ngIf="!isMobile" #headerScrolling>
+		<div class="content">
+			<div class="navbar-wrapper">
+				<nav class="nav nav-flex">
+					<div class="logo">
+						<a  (click)="changeBodyBg('home')" (click)="onScrollTop()" routerLink="/"><img [src]="logo" alt="logo"></a>
+					</div>
+					<ul>
+						<li (click)="changeBodyBg('home')" (click)="onScrollTop()"><a routerLink="" routerLinkActive="active">Главная</a></li>
+						<li (click)="changeBodyBg('services')" (click)="onScrollTop()" routerLink="/services" routerLinkActive="active"><a>Услуги</a></li>
+						<li (click)="changeBodyBg('contact')" (click)="onScrollTop()" routerLink="/contact" routerLinkActive="active"><a>Связь</a></li>
+					</ul>
+					<div class="phone">
+						<img src="/assets/images/icons/phone.svg" alt="phone">
+						<a href="tel:+12345678910" >
+							(+123) 456 789 10
+						</a>
+					</div>
+
+
+				</nav>
+			</div>
+		</div>
+	</header>
+	<header class="header-mobile" *ngIf="isMobile" [class.open-menu]="toogle">
+		<div class="navbar-wrapper">
+			<div class="logo">
+				<a routerLink="/"><img src="/assets/images/logo-m.svg" alt="logo"></a>
+			</div>
+			<button class="menu-show" (click)="showMenu()">
+				<svg width="40" height="35" viewBox="0 0 147 78" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="!toogle">
+					<rect width="147" height="9.66575" fill="#1E4D5B"/>
+					<rect y="33.8301" width="147" height="9.66575" fill="#1E4D5B"/>
+					<rect x="43.4958" y="67.6603" width="103.504" height="9.66575" fill="#1E4D5B"/>
+				</svg>
+
+				<svg width="30" height="5" viewBox="0 0 30 5" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="toogle">
+					<rect width="30" height="5" fill="#1E4D5B"/>
+				</svg>
+
+			</button>
+		</div>
+		<nav class="nav nav-flex" *ngIf="toogle">
+			<ul>
+				<li><a routerLink="" routerLinkActive="active">Главная</a></li>
+				<li routerLink="/services" routerLinkActive="active"><a>Услуги</a></li>
+				<li routerLink="/contact" routerLinkActive="active"><a>Связь</a></li>
+			</ul>
+
+			<div class="social-wrapper">
+				<div class="phone">
+					<img src="/assets/images/icons/phone.svg" alt="phone">
+					(+123) 456 789 10
+				</div>
+
+				<div class="social-box">
+					<ul>
+						<li><a href=""><img src="/assets/images/social/fb.svg" alt="fb"></a></li>
+						<li><a href=""><img src="/assets/images/social/insta.svg" alt="fb"></a></li>
+						<li><a href=""><img src="/assets/images/social/tw.svg" alt="fb"></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<router-outlet></router-outlet>
+
+	<footer>
+		<div class="content">
+			<div class="footer-wrapper">
+				<div class="footer-box">
+					<div class="logo">
+						<a routerLink="/"><img src="/assets/images/logo-m.svg" alt="logo"></a>
+					</div>
+					<div class="social-box">
+						<ul>
+							<li><a href=""><img src="/assets/images/social/fb.svg" alt="fb"></a></li>
+							<li><a href=""><img src="/assets/images/social/insta.svg" alt="fb"></a></li>
+							<li><a href=""><img src="/assets/images/social/tw.svg" alt="fb"></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="footer-box">
+					<h4>Услуги</h4>
+					<ul class="services-footer-list">
+						<li *ngFor="let service of _data.serviceAll()" [attr.data-id]="service.id">{{service.name}}</li>
+					</ul>
+				</div>
+
+				<div class="footer-box">
+					<h4>Контакты</h4>
+					<p>г. Москва, ул. </p>
+					<p>13с1 офис 715 </p>
+					<strong> (+123) 456 789 12 </strong>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</main>
+

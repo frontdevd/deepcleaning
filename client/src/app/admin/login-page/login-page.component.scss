@@ -1,0 +1,61 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/mixins";
+
+.login {
+  @include form();
+  transform: translate(0px, 100px);
+
+  form {
+    .form-control {
+      margin: 0 0 20px 0;
+
+      input {
+        @include input()
+      }
+
+      label {
+        @include label(31px);
+      }
+
+
+      .validation {
+        color: #d10e0e;
+      }
+
+      &.password {
+        i {
+          font-size: 20px;
+        }
+      }
+    }
+
+    button {
+      padding: 10px 26px;
+      transition: all .2s ease;
+      border: 0;
+      border-radius: 6px;
+      color: #fff;
+      box-sizing: border-box;
+      background: $blueColor;
+
+      &:disabled {
+        background: $greyLightColor;
+      }
+    }
+
+    > h4 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    > p {
+      margin-bottom: 20px;
+    }
+
+    .alert.alert-danger {
+      @include alert();
+    }
+  }
+}
+

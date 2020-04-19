@@ -1,0 +1,93 @@
+@import "../../../assets/scss/variable";
+@import "../../../assets/scss/media";
+@import "../../../assets/scss/animations";
+@import "../../../assets/scss/mixins";
+
+section#about-our-services {
+  background: #ffffff;
+  margin-top: 200px;
+  .about-wrapper {
+    display: flex;
+    justify-content: space-between;
+    @include media-breakpoint-up(md) {
+      flex-direction: column;
+    }
+
+    .about-box {
+      &:nth-child(1) {
+        flex-basis: 38%;
+        color: $blueColor;
+        font-family: Segoe UI;
+
+        @include media-breakpoint-up(md) {
+          margin-bottom: 30px;
+        }
+
+        h2 {
+          @include h2(40px, 55px, $blueColor);
+        }
+
+        p {
+          @include p(30px, 56px, $blueColor);
+          margin: 10px 0;
+          width: 460px;
+          @include media-breakpoint-up(1300) {
+            line-height: inherit;
+            width: 80%;
+          }
+          @include media-breakpoint-up(lg) {
+            width: 100%;
+          }
+        }
+
+        a {
+          @include p(36px, 67px, $blueColor);
+          font-weight: bold;
+
+          @include media-breakpoint-up(1300) {
+            font-size: 26px;
+          }
+        }
+      }
+      &:nth-child(2) {
+        flex-basis: 60%;
+
+        .spinner {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: #fffffff0;
+          width: 100%;
+
+          svg {
+            width: 40px;
+            animation: rotating 2s linear infinite;
+          }
+
+        }
+
+        .posts {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          position: relative;
+
+          @include media-breakpoint-up(1300) {
+            flex-direction: column;
+          }
+          app-post {
+            flex-basis: 48%;
+
+            @include media-breakpoint-up(xs) {
+              flex-basis: 98%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
